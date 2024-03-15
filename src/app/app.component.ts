@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,ComponentFactoryResolver,ElementRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { WeatherComponent } from './weather/weather.component';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  addComponent():void{
-    let frase = 'Hola'; 
+  @ViewChild('weatherContainer', { read: ViewContainerRef }) weatherContainer!: ViewContainerRef;
+
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
+
+  addComponent(): void {
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(WeatherComponent);
+    const componentRef = this.weatherContainer.createComponent(componentFactory);
   }
   title = 'WeatherAppAngular17';
 }
