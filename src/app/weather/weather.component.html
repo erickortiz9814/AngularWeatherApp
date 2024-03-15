@@ -21,6 +21,8 @@
             <p class="card-text">Feels like: {{feelsLikeTemp | number: '1.0-0'}} °{{units=='imperial' ? 'F' : 'C'}}</p>
             <p class="card-text">Pressure: {{pressure}} hPa</p>
             <p class="card-text">Humidity: {{humidity}} %</p>
+            <button><a [routerLink]="['/detail']">Detail</a></button>
+            <button>Delete</button>
         </div>
         <div class="card-footer bg-transparent border-success">
             <form class="myRadioButtons">

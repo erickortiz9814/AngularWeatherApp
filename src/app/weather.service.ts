@@ -16,4 +16,10 @@ export class WeatherService {
     return this.http.get(`${this.URI}${cityName},${countryCode}`);
   }
 
+  getForecast(){
+    let daysForecast: any = this.http.get(`api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=${this.apiKey}`);
+    console.log(daysForecast);
+    return this.http.get(`api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=${this.apiKey}`);
+  }
+
 }
