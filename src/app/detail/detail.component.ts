@@ -34,10 +34,15 @@ export class DetailComponent implements OnInit {
     this.forecastService.getForecast(this.city, this.countryCode).subscribe({
       
       next: (res) => {
-        console.log(res);
-        // for(const entry in res){
-        //   //res.list
-        // }
+        this.myWeather = res;
+        for(let i = 0; i <= this.myWeather.list.length; i++){
+          let date = new Date();
+          console.log(date);
+          console.log(this.myWeather.list[i].dt_txt);
+          
+          //this.myWeather.list[i].dt_txt;
+        }
+        //console.log(this.myWeather.list)
         // this.myWeather = res;
         // if(this.units == 'imperial'){
         //   this.temperature = (this.myWeather.main.temp * 9/5) + 32;
